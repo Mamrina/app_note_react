@@ -6,7 +6,6 @@ export default function NoteList({ notes, onRemoveBtn }) {
     <li key={index}>
       {note.text}
       &nbsp;
-      {/* <button onClick={onRemoveBtn}>🖊</button> */}
       <button onClick={(e) => onRemoveBtn(note)}>❌</button>
     </li>
   ));
