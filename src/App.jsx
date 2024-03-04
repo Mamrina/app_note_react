@@ -9,8 +9,14 @@ import NoteList from './components/NoteList';
 function App() {
 
   const [notes, setNotes] = useState([
-    { id: 1, text: "première note" }
+    { id: 1, text: "première note" },
+    { id: 2, text: "deuxième note" },
+    { id: 3, text: "troisième note" }
   ]);
+
+  const handleAddNote = (newNote) => {
+    setNotes([...notes, newNote]);
+  };
 
   function onRemoveBtnHandler(noteToDelete) {
     // on garde toutes les notes qui ne sont pas celles à supprimer
@@ -23,7 +29,7 @@ function App() {
     <>
       <h1>Mes notes</h1>
       <Counter notes={notes}/>
-      <AddNoteForm />
+      <AddNoteForm onAddNote={handleAddNote}/>
       <Filters />
       <NoteList notes={notes} onRemoveBtn={onRemoveBtnHandler} />
     </>
